@@ -1,6 +1,18 @@
 spring:
   application:
     name: ${SPRING_APP_NAME:eazybank-backend-app}
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST:localhost:}${DATABASE_PORT:3306}/${DATABASE_NAME:eazybank}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:root}
+  jpa:
+    show-sql: ${JPA_SHOW_SQL:true}
+    properties:
+      hibernate:
+        format_sql: ${HIBERNATE_FORMAT_SQL:true}
+
+
 #  security:
 #    user:
 #      name: ${SECURITY_NAME:uexcel}
@@ -13,3 +25,4 @@ logging:
     org:
       springframework:
         security: ${SPRING_SECURITY_LOG_LEVEL:trace}
+
