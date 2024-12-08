@@ -11,7 +11,8 @@ spring:
     properties:
       hibernate:
         format_sql: ${HIBERNATE_FORMAT_SQL:true}
-
+    hibernate:
+      ddl-auto: ${HIBERNATE_DDL_AUTO:update}
 
 #  security:
 #    user:
