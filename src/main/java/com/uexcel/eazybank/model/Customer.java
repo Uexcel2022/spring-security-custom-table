@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+
 @Entity
 @Data
 public class Customer {
@@ -15,5 +16,4 @@ public class Customer {
     private String email;
     private String pwd;
     private String role;
-
 }
