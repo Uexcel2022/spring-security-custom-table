@@ -15,10 +15,12 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class ProjectSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+
+        http.csrf(csrfConfig->csrfConfig.disable());
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/api/myAccounts","/api/myBalance").authenticated()
                 .requestMatchers("/api/myLoans","/api/myCards").authenticated()
-                .requestMatchers("/api/contact","/api/notices","/error").permitAll()
+                .requestMatchers("/api/contact","/api/notices","/error","/api/register").permitAll()
                 .anyRequest().authenticated());
         http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
