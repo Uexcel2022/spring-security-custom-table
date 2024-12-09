@@ -17,8 +17,7 @@ public class EazyBankUsernamePasswordAuthenticationProvider implements Authentic
     private final PasswordEncoder passwordEncoder;
     /**
      * @param authentication the authentication request object.
-     * @return
-     * @throws AuthenticationException
+     * @throws AuthenticationException - exception
      */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -32,8 +31,8 @@ public class EazyBankUsernamePasswordAuthenticationProvider implements Authentic
         }
     }
     /**
-     * @param authentication
-     * @return
+     * @param authentication - authentication
+     * @return - authentication type
      */
     @Override
     public boolean supports(Class<?> authentication) {
