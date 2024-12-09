@@ -25,6 +25,11 @@ public class ProjectSecurityConfig {
         return http.build();
     }
 
+    @Bean
+    public CompromisedPasswordChecker compromisedPasswordChecker() {
+        return new HaveIBeenPwnedRestApiPasswordChecker();
+    }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -32,9 +37,6 @@ public class ProjectSecurityConfig {
                 .createDelegatingPasswordEncoder();
     }
 
-    @Bean
-    public CompromisedPasswordChecker compromisedPasswordChecker() {
-        return new HaveIBeenPwnedRestApiPasswordChecker();
-    }
+
 
 }
