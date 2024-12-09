@@ -26,7 +26,8 @@ public class iCustomerServiceImpl implements ICustomerService {
                     getTime(),417,
                     HttpStatus.EXPECTATION_FAILED,"Password is compromised.",null);
         }
-        customerDto.setPwd(passwordEncoder.encode(customerDto.getPwd()));
+        String hashedPassword = passwordEncoder.encode(customerDto.getPwd());
+        customerDto.setPwd(hashedPassword);
         Customer customer = customerRepository
                 .save(customerMapper.toCustomer(new Customer(), customerDto));
 
