@@ -6,22 +6,14 @@ spring:
     username: ${DATABASE_USERNAME:root}
     password: ${DATABASE_PASSWORD:root}
   jpa:
-    show-sql: ${JPA_SHOW_SQL:true}
+    show-sql: ${JPA_SHOW_SQL:false}
     properties:
       hibernate:
-        format_sql: ${HIBERNATE_FORMAT_SQL:true}
-    hibernate:
-      ddl-auto: ${HIBERNATE_DDL_AUTO:update}
+        format_sql: ${HIBERNATE_FORMAT_SQL:false}
+
   config:
-    import: application_prod.yml
-
-  profiles:
-    active: prod
-
-#  security:
-#    user:
-#      name: ${SECURITY_NAME:uexcel}
-#      password: ${SECURITY_PASSWORD:1234}
+    activate:
+      on-profile: prod
 
 logging:
   pattern:
@@ -29,5 +21,5 @@ logging:
   level:
     org:
       springframework:
-        security: ${SPRING_SECURITY_LOG_LEVEL:trace}
+        security: ${SPRING_SECURITY_LOG_LEVEL:error}
 
