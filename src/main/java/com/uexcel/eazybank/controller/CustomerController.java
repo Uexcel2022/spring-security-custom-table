@@ -1,22 +1,27 @@
 package com.uexcel.eazybank.controller;
 
-import com.uexcel.eazybank.dto.CustomerDto;
+import com.uexcel.eazybank.dto.CreateCustomerDto;
+import com.uexcel.eazybank.dto.CustomerResponseDto;
 import com.uexcel.eazybank.dto.ResponseDto;
 import com.uexcel.eazybank.service.ICustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/api")
 public class CustomerController {
-    private final ICustomerService customerService;
+    private final ICustomerService iCustomerService;
 
-    @PostMapping("/api/register")
-    public ResponseEntity<ResponseDto> addCustomer(@RequestBody CustomerDto customerDto) {
-        ResponseDto rs = customerService.addCustomer(customerDto);
+    @PostMapping("/register")
+    public ResponseEntity<ResponseDto> addCustomer(@RequestBody CreateCustomerDto createCustomerDto) {
+        ResponseDto rs = iCustomerService.addCustomer(createCustomerDto);
         return ResponseEntity.status(rs.getStatus()).body(rs);
+    }
+    @GetMapping("fetch-customer")
+    public ResponseEntity<CustomerResponseDto> getCustomerDetails(@RequestParam String mobileNumber) {
+        CustomerResponseDto cRD = iCustomerService.getCustomerDetails(mobileNumber);
+        return ResponseEntity.ok(cRD);
     }
 }

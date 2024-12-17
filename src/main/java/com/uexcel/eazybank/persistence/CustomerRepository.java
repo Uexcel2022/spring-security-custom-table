@@ -1,4 +1,4 @@
-package com.uexcel.eazybank.repository;
+package com.uexcel.eazybank.persistence;
 
 import com.uexcel.eazybank.model.Customer;
 import org.springframework.data.repository.CrudRepository;
@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
     Optional<Customer> findByEmail(String email);
+
+    Optional<Customer> findByMobileNumber(String mobileNumber);
 }

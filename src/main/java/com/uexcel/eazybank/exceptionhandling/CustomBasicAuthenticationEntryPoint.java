@@ -1,4 +1,4 @@
-package com.uexcel.eazybank.exceptions;
+package com.uexcel.eazybank.exceptionhandling;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

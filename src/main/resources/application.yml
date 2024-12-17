@@ -11,12 +11,17 @@ spring:
       hibernate:
         format_sql: ${HIBERNATE_FORMAT_SQL:true}
     hibernate:
-      ddl-auto: ${HIBERNATE_DDL_AUTO:update}
+      ddl-auto: ${HIBERNATE_DDL_AUTO:none}
   config:
     import: application_prod.yml
 
   profiles:
     active: prod
+
+server:
+  servlet:
+    session:
+      timeout: ${SESSION_TIME0UT:2m}
 
 #  security:
 #    user:
@@ -30,4 +35,3 @@ logging:
     org:
       springframework:
         security: ${SPRING_SECURITY_LOG_LEVEL:trace}
-

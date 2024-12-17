@@ -1,7 +1,7 @@
 package com.uexcel.eazybank.config;
 
 import com.uexcel.eazybank.model.Customer;
-import com.uexcel.eazybank.repository.CustomerRepository;
+import com.uexcel.eazybank.persistence.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
