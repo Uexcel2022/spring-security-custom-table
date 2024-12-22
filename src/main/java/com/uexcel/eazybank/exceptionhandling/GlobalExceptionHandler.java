@@ -21,4 +21,16 @@ public class GlobalExceptionHandler {
                 )
         );
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponseDto>
+    handleException(Exception e, WebRequest request) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR.value()).body(
+                new ErrorResponseDto(
+                        ICustomerService.getTime(),HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                        HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(),
+                        request.getDescription(false)
+                )
+        );
+    }
 }

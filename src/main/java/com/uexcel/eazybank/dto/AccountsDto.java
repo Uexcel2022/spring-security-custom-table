@@ -13,6 +13,6 @@ public class AccountsDto {
     private String branchAddress;
     private LocalDate createDt;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private CustomerDto customerDto;
+    private CustomerDto customer;
 
 }

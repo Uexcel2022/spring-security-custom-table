@@ -32,7 +32,7 @@ public class ILoanServiceImpl implements ILoanService {
             loansDtoList.add(loanDto);
             return loansDtoList;
         }
-        loans.forEach(loan -> loansDtoList.add(loanMapper.mapToLoanDto(loan, new LoanDto())));
+        loans.forEach(loan -> loansDtoList.add(loanMapper.toLoanDto(loan, new LoanDto())));
 
         return loansDtoList;
     }
