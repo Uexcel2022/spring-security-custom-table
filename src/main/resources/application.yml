@@ -16,7 +16,7 @@ spring:
     import: application_prod.yml
 
   profiles:
-    active: prod
+    active: default
 
 server:
   servlet:
